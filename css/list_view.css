@@ -1,0 +1,85 @@
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: #D6302B;
+    color: white;
+    border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.contentContainer {
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.itemContainer {
+    width: 100%;
+    height: 500px;
+    max-width: 275px;
+    display: flex;
+    padding: 5px 5px 5px 5px;
+    border: 2px solid #D6302B;
+    margin: 4px;
+    border-radius: 8px 8px 8px 8px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.innerItem {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+.itemImage {
+    max-width: 290px;
+    max-height: 290px;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.itemSpanName
+{
+    display: flex;
+    justify-content: center;
+    font-weight: normal;
+    height: 80px;
+    font-size: 22px;
+    color: black;
+    text-align: center;
+}
+
+.priceSpan
+{
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    padding: 5px;
+}
+
+
+.resultsSpan
+{
+    font-size: 19px;
+    color: black;
+    font-weight: bold;
+}

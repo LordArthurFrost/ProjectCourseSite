@@ -1,4 +1,9 @@
 <?
+include("scripts/php/Pagination.php");
+require_once 'Database.php';
+
+
+
 $requestUri = explode('/', stristr($_SERVER['REQUEST_URI'] . '?', '?', true));
 array_shift($requestUri);
 

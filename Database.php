@@ -1,6 +1,7 @@
 <?php
 
 require("models/ShortViewInfo.php");
+require("models/ItemFullInfo.php");
 
 class Database
 {
@@ -60,19 +61,56 @@ class Database
         or goods.code_type in (select distinct type.type_code from type where type.type like '$searching%')";
 
         return $this->executeQuery($query, $page);
+    }
 
+    public function getManufacturer($code_manufacturer)
+    {
+        $query = "select manufacturer.manufacturer
+        from manufacturer
+        where manufacturer.code_manufacturer = '$code_manufacturer'";
 
+        $result = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
+
+        if ($result) {
+            $row = mysqli_fetch_row($result);
+            return $row[0];
+        }
+    }
+
+    public function getShortListViewByManufacturer($code_manufacturer, $page = 1)
+    {
+
+        $query = "select goods.id_good, goods.name, goods.price, goods.image 
+        from goods 
+        where goods.code_manufacturer = '$code_manufacturer'";
+
+        return $this->executeQuery($query, $page);
+    }
+
+    public function getFullItemInfo($id)
+    {
+        $query = "select goods.name, goods.price, goods.description, goods.image, manufacturer.manufacturer, manufacturer.code_manufacturer, type.category, type.category_name, type.type, type.type_name 
+        from goods, manufacturer, type 
+        where goods.id_good = '$id' and goods.code_manufacturer = manufacturer.code_manufacturer and goods.code_type = type.type_code";
+
+        $result = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
+
+        if ($result) {
+            $row = mysqli_fetch_row($result);
+            return new ItemFullInfo($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9]);
+        }
+        return null;
     }
 
     function executeQuery($query, $page)
     {
-        $offset = 20 * ($page - 1);
+        $offset = 21 * ($page - 1);
         $result = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
 
         $shortListObjects = array();
         ShortViewInfo::setCount(mysqli_num_rows($result));
 
-        $query .= " limit 20 offset $offset";
+        $query .= " limit 21 offset $offset";
         $result = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
 
         if ($result) {
