@@ -1,7 +1,7 @@
 <?
 include("scripts/php/Pagination.php");
 require_once 'Database.php';
-
+include("models/News.php");
 
 
 $requestUri = explode('/', stristr($_SERVER['REQUEST_URI'] . '?', '?', true));
@@ -18,8 +18,8 @@ switch ($arg) {
         include("includes/about.php");
         break;
 
-    case "guaranties":
-        include("includes/guaranties.php");
+    case "services":
+        include("includes/services.php");
         break;
 
     case "contacts":
@@ -32,6 +32,10 @@ switch ($arg) {
 
     case "show_item":
         include("includes/show_item.php");
+        break;
+
+    case "buy_form":
+        include("includes/buyForm.php");
         break;
 
     case "search":

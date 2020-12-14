@@ -34,7 +34,7 @@ function setCatalogue()
             </div>
             <div class="headerTopSearch">
                 <form action="search" >
-                    <input class="header__search_input type=search" placeholder="Я ищу ..." name="searching">
+                    <input class="headerSearchInput" type="search" placeholder="Я ищу ..." name="searching">
                     <button type="submit" style="display: none"></button>
                 </form>
             </div>
@@ -52,7 +52,7 @@ function setCatalogue()
                     </li>
                     <li class="nav"><a href="/about">О Нас</a></li>
                     <li class="nav"><a href="/news">Новости</a></li>
-                    <li class="nav"><a href="/guaranties">Гарантии</a></li>
+                    <li class="nav"><a href="/services">Услуги</a></li>
                     <li class="nav"><a href="/delivery_and_payment">Оплата</a></li>
                     <li class="nav"><a href="/contacts">Контакты</a></li>
                     <?

@@ -1,0 +1,22 @@
+img {
+    width: 425px;
+    height: auto;
+    margin: 0 auto 0 auto;
+}
+
+div.container div.divTextMargin ul li {
+    margin-left: 25px;
+}
+
+.imageGroupDiv {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.loneImage{
+    width: 850px;
+    height: auto;
+    margin: 0 auto 0 auto;
+}

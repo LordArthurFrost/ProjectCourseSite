@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>О магазине</title>
     <link rel="icon" href="/images/site_logo.svg">
-    <link rel="stylesheet" href="/css/about.css?<? echo time(); ?>">
+    <link rel="stylesheet" href="/css/ultimate.css?<? echo time(); ?>">
     <meta name="author" content="Bow Master">
     <meta name="description" content="Сайт по покупке луков">
     <meta name="keywords" content="Bow master, bowmaster, bow, лук, арбалет, купить лук, купить арбалет,
@@ -21,7 +21,7 @@ include("includes/header.php");
 ?>
 <div class="container">
 
-    <h2 class="bigText h2Stype" >О магазине</h2>
+    <h2 class="bigText h2Style" >О магазине</h2>
 
     <div class="divTextMargin">
         Наша миссия - способствовать развитию и популяризации лучного спорта в Украине. Мы стремительно развиваемся,

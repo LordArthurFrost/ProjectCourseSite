@@ -3,9 +3,9 @@
 
 class ItemFullInfo
 {
-    private $name, $price, $description, $image, $manufacturer, $code_manufacturer, $category, $category_name, $type, $type_name;
+    private $name, $price, $description, $image, $manufacturer, $code_manufacturer, $category, $category_name, $type, $type_name, $id;
 
-    public function __construct($name, $price, $description, $image, $manufacturer, $code_manufacturer, $category, $category_name, $type, $type_name)
+    public function __construct($name, $price, $description, $image, $manufacturer, $code_manufacturer, $category, $category_name, $type, $type_name, $id)
     {
         $this->name = $name;
         $this->price = $price;
@@ -17,6 +17,13 @@ class ItemFullInfo
         $this->category_name = $category_name;
         $this->type = $type;
         $this->type_name = $type_name;
+        $this->id = $id;
+    }
+
+
+    public function getId()
+    {
+        return $this->id;
     }
 
 

@@ -7,6 +7,7 @@ class Database
 {
     public $connection;
 
+
     function __construct()
     {
         $host = 'localhost'; // адрес сервера
@@ -18,6 +19,7 @@ class Database
 
         $this->connection = $connection;
     }
+
 
     public function getCategories()
     {
@@ -35,6 +37,7 @@ class Database
         return $categories;
     }
 
+
     public function getTypes($category)
     {
         $query = "select distinct type.type_name, type.type from type where type.category_code = (select distinct type.category_code from type where type.category = '$category')";
@@ -50,6 +53,7 @@ class Database
         return $types;
     }
 
+
     public function getShortListViewBySearch($searching, $page = 1)
     {
 
@@ -62,6 +66,7 @@ class Database
 
         return $this->executeQuery($query, $page);
     }
+
 
     public function getManufacturer($code_manufacturer)
     {
@@ -77,6 +82,7 @@ class Database
         }
     }
 
+
     public function getShortListViewByManufacturer($code_manufacturer, $page = 1)
     {
 
@@ -87,9 +93,10 @@ class Database
         return $this->executeQuery($query, $page);
     }
 
+
     public function getFullItemInfo($id)
     {
-        $query = "select goods.name, goods.price, goods.description, goods.image, manufacturer.manufacturer, manufacturer.code_manufacturer, type.category, type.category_name, type.type, type.type_name 
+        $query = "select goods.name, goods.price, goods.description, goods.image, manufacturer.manufacturer, manufacturer.code_manufacturer, type.category, type.category_name, type.type, type.type_name, goods.id_good 
         from goods, manufacturer, type 
         where goods.id_good = '$id' and goods.code_manufacturer = manufacturer.code_manufacturer and goods.code_type = type.type_code";
 
@@ -97,10 +104,11 @@ class Database
 
         if ($result) {
             $row = mysqli_fetch_row($result);
-            return new ItemFullInfo($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9]);
+            return new ItemFullInfo($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10]);
         }
         return null;
     }
+
 
     function executeQuery($query, $page)
     {
@@ -153,4 +161,41 @@ class Database
         return $this->executeQuery($query, $page);
     }
 
+
+    public function getNews()
+    {
+
+        $query = "select news.news_title, news.news, news.date, news.image_news
+        from news";
+
+        $news = array();
+
+        $result = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
+        if ($result) {
+            for ($i = 0; $i < mysqli_num_rows($result); ++$i) {
+                $row = mysqli_fetch_row($result);
+                $news[$i] = new News($row[0], $row[1], $row[2], $row[3]);
+            }
+            return $news;
+        }
+    }
+
+
+    public function getGoodById($id)
+    {
+        $query = "select goods.id_good, goods.name, goods.price, goods.image 
+        from goods 
+        where goods.id_good='$id'";
+
+
+        $result = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
+
+        if ($result) {
+            for ($i = 0; $i < mysqli_num_rows($result); ++$i) {
+                $row = mysqli_fetch_row($result);
+                return new ShortViewInfo($row[0], $row[1], $row[2], $row[3]);
+            }
+        }
+        return null;
+    }
 }

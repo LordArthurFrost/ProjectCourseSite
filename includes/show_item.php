@@ -18,6 +18,7 @@ $category_name = $content->getCategoryName();
 $type = $content->getType();
 $type_name = $content->getTypeName();
 $price = $content->getPrice();
+$id = $content->getId();
 
 ?>
 
@@ -28,23 +29,24 @@ $price = $content->getPrice();
 <head>
     <meta name="language" content="ru">
     <meta charset="UTF-8">
-    <title>Наш товар</title>
+    <title>Инфориация про <? echo $name ?></title>
     <meta name="author" content="Bow Master">
-    <meta name="description" content="Сайт по покупке луков">
+    <meta name="description" content="Купить <? echo $name ?> (<? echo $type ?>)">
     <meta name="keywords" content="Bow master, bowmaster, bow, лук, арбалет, купить лук, купить арбалет,
     снаряжение для стрельбы, стрельба, стрельба из лука, стрельба из арбалета, аксессуары для стрельбы, стрелы, боуфишинг, мишени, щиты, щитки, сетки, сетки для стрел, 2д мишени, 2d мишени,
-    3д минеши, 3d мишени">
+    3д минеши, 3d мишени, Купить <? echo $name ?> (<? echo $type ?>)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/images/site_logo.svg">
-    <link rel="stylesheet" href="/css/show_item.css?<? echo time();?>">
-    <link rel="stylesheet" href="/css/ultimate.css?<? echo time();?>">
+    <link rel="stylesheet" href="/css/show_item.css?<? echo time(); ?>">
+    <link rel="stylesheet" href="/css/ultimate.css?<? echo time(); ?>">
+    <script src="/scripts/js/buyScripts.js?<? echo time(); ?>"></script>
 </head>
 
 <body>
 <?
 include("includes/header.php");
 ?>
-<div class="container" style="flex-direction: column">
+<div class="container">
     <div class="topContent">
         <div>
             <?
@@ -70,7 +72,7 @@ include("includes/header.php");
             </div>
             <div style="margin-top: 10px">
                 <?
-                echo "Производитель: <a href='/search?category=$category_name&type=$type_name' class='aTypeAndCategory'>$type</a>"
+                echo "Тип: <a href='/search?category=$category_name&type=$type_name' class='aTypeAndCategory'>$type</a>"
                 ?>
             </div>
             <hr>
@@ -80,7 +82,9 @@ include("includes/header.php");
                 ?>
             </div>
             <div class="buttonBuyDiv" style="margin-top: 20px; justify-content: left">
-                <button class='buttonBuy'>Купить</button>
+                <?
+                echo "<button class='buttonBuy' onclick='fillForm(\"$id\")'>Купить</button>"
+                ?>
             </div>
         </div>
 
@@ -94,7 +98,7 @@ include("includes/header.php");
 </div>
 
 <?
-include ("includes/footer.php");
+include("includes/footer.php");
 ?>
 </body>
 

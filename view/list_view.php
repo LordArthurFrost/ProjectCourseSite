@@ -65,7 +65,7 @@ function setContent()
         echo "<span class='priceSpan'>$price гривен</span>";
         echo "</div>";
         echo "<div class='buttonBuyDiv'>";
-        echo "<button class='buttonBuy'>Купить</button>";
+        echo "<button class='buttonBuy' onclick='fillForm(\"$id\")'>Купить</button>";
         echo "</div>";
         echo "</div>";
     }
@@ -106,8 +106,9 @@ function createPagination()
     <meta charset="UTF-8">
     <title>Продажа снаряжения для стрельбы</title>
     <link rel="icon" href="/images/site_logo.svg">
-    <link rel="stylesheet" href="/css/list_view.css?<? echo time();?>">
-    <link rel="stylesheet" href="/css/ultimate.css?<? echo time();?>">
+    <link rel="stylesheet" href="/css/list_view.css?<? echo time(); ?>">
+    <link rel="stylesheet" href="/css/ultimate.css?<? echo time(); ?>">
+    <script src="/scripts/js/buyScripts.js?<? echo time(); ?>"></script>
     <meta name="author" content="Bow Master">
     <meta name="description" content="Сайт по покупке луков">
     <meta name="keywords" content="Bow master, bowmaster, bow, лук, арбалет, купить лук, купить арбалет,
@@ -131,7 +132,7 @@ createPagination();
 ?>
 
 <?
-include ("includes/footer.php");
+include("includes/footer.php");
 ?>
 </body>
 

@@ -4,6 +4,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-items: center;
+    flex-direction: column;
     justify-content: center;
     min-height: calc(100vh - 240px);
 }
@@ -33,14 +34,30 @@
     font-size: 17px;
 }
 
-.h2Stype {
+.h2Style {
     justify-self: center;
+    align-self: center;
+    font-weight: bold;
     max-height: 50px;
     margin-top: 25px;
 }
 
-.divTextMargin
-{
+.divTextMargin {
     margin-top: 20px;
     width: 900px;
+}
+
+.horizontalDiv {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.verticalDiv {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
 }
