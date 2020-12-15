@@ -20,8 +20,8 @@ function setCategories()
     <meta charset="UTF-8">
     <title>Продажа снаряжения для стрельбы</title>
     <link rel="icon" href="/images/site_logo.svg">
-    <link rel="stylesheet" href="/css/main.css?<? echo time();?>">
-    <link rel="stylesheet" href="/css/ultimate.css?<? echo time();?>">
+    <link rel="stylesheet" href="/css/main.css?<? echo time(); ?>">
+    <link rel="stylesheet" href="/css/ultimate.css?<? echo time(); ?>">
     <meta name="author" content="Bow Master">
     <meta name="description" content="Сайт по покупке луков">
     <meta name="keywords" content="Bow master, bowmaster, bow, лук, арбалет, купить лук, купить арбалет,
