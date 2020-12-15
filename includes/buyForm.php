@@ -1,10 +1,15 @@
+<script src="/scripts/js/buyScripts.js?<? echo time(); ?>"></script>
+
 <?
 $db = new Database();
 $info = null;
+$id = null;
 if (isset($_GET['id']) or $_GET['id'] != null) {
     $info = $db->getGoodById(htmlspecialchars($_GET['id']));
+    $id = (htmlspecialchars($_GET['id']));
 } else {
     $info = $db->getGoodById(22);
+    $id = 22;
 }
 
 $name = $info->getName();
@@ -23,7 +28,6 @@ $image = $info->getImage();
     <link rel="icon" href="/images/site_logo.svg">
     <link rel="stylesheet" href="/css/ultimate.css?<? echo time(); ?>">
     <link rel="stylesheet" href="/css/buyForm.css?<? echo time(); ?>">
-    <script src="/scripts/js/buyScripts.js?<? echo time(); ?>"></script>
     <meta name="author" content="Bow Master">
     <meta name="description" content="Сайт по покупке луков">
     <meta name="keywords" content="Bow master, bowmaster, bow, лук, арбалет, купить лук, купить арбалет,
@@ -56,7 +60,7 @@ include("includes/header.php");
     </div>
 
     <div class="horizontalDiv" style="margin-top: 30px">
-        <form enctype="multipart/form-data" id="buy" onsubmit="addToDatabase()">
+        <form enctype="multipart/form-data" method="post" id="buy" action="/index.php">
             <label for="name">Введите Ваше имя:</label><br>
             <label>
                 <input class="input" type="text" name="name" placeholder="Артур" required>
@@ -71,9 +75,13 @@ include("includes/header.php");
             </label><br><br>
             <label for="tel">Введите Вашу телефон:</label><br>
             <label>
-                <input class="input" type="tel" name="tel" placeholder="+380981203667">
+                <input class="input" type="tel" name="tel" placeholder="+380981203667" required>
             </label><br><br>
-            <input class="buttonBuy" type="submit" value="Подтвердить" required style="margin-right: 25px">
+            <label>
+                <input class="input" type="hidden" name="id" value="<? echo $id ?>" style="display: none" readonly
+                       required>
+            </label>
+            <input class="buttonBuy" type="submit" value="Подтвердить" style="margin-right: 25px">
             <input class="buttonBuy" type="reset">
         </form>
     </div>

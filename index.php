@@ -9,6 +9,17 @@ array_shift($requestUri);
 
 $arg = array_shift($requestUri);
 
+if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['email']) && isset($_POST['tel']) && isset($_POST['id'])) {
+    $db = new Database();
+    $result = $db->addCustomerGood(htmlspecialchars($_POST['id']), htmlspecialchars($_POST['name']), htmlspecialchars($_POST['surname']), htmlspecialchars($_POST['tel']), htmlspecialchars($_POST['email']));
+
+    if ($result) {
+        echo "<script>alert(\"Ваш заказ оформлен. \\nВы будете перенаправлены на главную страницу\")</script>";
+    } else {
+        echo "<script>alert(\"Произошла ошибка. \\nПопробуйте позже\")</script>";
+    }
+}
+
 switch ($arg) {
     case "news":
         include("includes/news.php");

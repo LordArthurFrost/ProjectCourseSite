@@ -1,5 +1,4 @@
 <?
-
 function setCategories()
 {
     $db = new Database();
