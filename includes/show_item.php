@@ -40,6 +40,7 @@ $id = $content->getId();
     <link rel="stylesheet" href="/css/show_item.css?<? echo time(); ?>">
     <link rel="stylesheet" href="/css/ultimate.css?<? echo time(); ?>">
     <script src="/scripts/js/buyScripts.js?<? echo time(); ?>"></script>
+    <meta property="og:image" content="<? echo $image ?>.jpeg">
 </head>
 
 <body>
