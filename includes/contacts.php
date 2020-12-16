@@ -23,7 +23,7 @@ include("includes/header.php");
 <div class="container">
     <h2 class="bigText h2Style">Контакты</h2>
     <div class="horizontalDiv divTextMargin" style="justify-content: space-evenly;">
-        <div>
+        <div style="margin-top: 10px">
             <span>Телефон</span>
             <ul>
                 <li>(044) 222-61-26</li>
@@ -33,7 +33,7 @@ include("includes/header.php");
                 <li>(098) 120-36-67</li>
             </ul>
         </div>
-        <div><span>Почта & SKYPE</span>
+        <div style="margin-top: 10px"><span>Почта & SKYPE</span>
             <ul>
                 <li>arcusmarket1</li>
                 <li>info@arcusmarket.com</li>
@@ -41,8 +41,9 @@ include("includes/header.php");
         </div>
     </div>
     <div class="divTextMargin horizontalDiv" style="justify-content: space-evenly;">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2194.548699916259!2d35.18334058346605!3d47.81767600410523!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dc5e0abc8f7ad7%3A0xff4424b2b527d5ab!2z0KPRh9C10LHQvdGL0Lkg0LrQvtGA0L_Rg9GBINCX0J3QotCjIOKEljM!5e1!3m2!1sru!2sua!4v1607950084647!5m2!1sru!2sua"
-                width="850" height="600" style="border-radius: 8px 8px 8px 8px; border: 2px solid #D6302B;"
+        <iframe class="iframe"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2194.548699916259!2d35.18334058346605!3d47.81767600410523!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dc5e0abc8f7ad7%3A0xff4424b2b527d5ab!2z0KPRh9C10LHQvdGL0Lkg0LrQvtGA0L_Rg9GBINCX0J3QotCjIOKEljM!5e1!3m2!1sru!2sua!4v1607950084647!5m2!1sru!2sua"
+
                 allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
     </div>
 </div>

@@ -2,3 +2,10 @@ div.container div img {
     height: auto;
     max-width: 900px;
 }
+
+@media (max-width: 900px) {
+
+    div.container div img{
+        max-width: 600px;
+    }
+}

@@ -20,3 +20,14 @@ div.container div.divTextMargin ul li {
     height: auto;
     margin: 0 auto 0 auto;
 }
+
+@media (max-width: 900px) {
+
+    .loneImage{
+        width: 600px;
+    }
+
+    img{
+        margin-top: 10px;
+    }
+}

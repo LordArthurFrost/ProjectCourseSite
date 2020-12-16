@@ -1,5 +1,6 @@
 <?
 
+
 function setContent()
 {
     $db = new Database();
@@ -9,6 +10,7 @@ function setContent()
     $searching = null;
     $selected = array();
     $sort = null;
+    $getVar = null;
 
     if (isset($_GET['sortPrice'])) {
         $sort = $_GET['sortPrice'];
@@ -138,6 +140,56 @@ function createPagination()
     setPagination(ShortViewInfo::getCount(), $page, $link);
 }
 
+function setCategories()
+{
+    $db = new Database();
+    $categories = $db->getCategories();
+
+    $nowCat = null;
+    $nowTyp = null;
+
+
+    if (isset($_GET['category'])) {
+        $nowCat = $_GET['category'];
+    }
+    if (isset($_GET['type'])) {
+        $nowTyp = $_GET['type'];
+    }
+
+    echo "<span class='bigText'>Категории</span>";
+    foreach ($categories as $categoryKey => $category) {
+
+        echo "<div style='text-align: left;'><div style='display: flex; justify-content: space-between; margin-top: 20px'>";
+
+
+        if ($nowCat === $categoryKey) {
+            echo "<a href='/search?category=$categoryKey&page=1' class='bigText' style='margin-left: 15px'><h2 class='bigText' style='color:red;'>$category</h2></a>";
+            echo "<i class='iForBefore' onclick='toggle_visibility(\"$categoryKey\")'></i></div>";
+            echo "<div id='$categoryKey' style='display: block'>";
+        } else {
+            echo "<a href='/search?category=$categoryKey&page=1' class='bigText' style='margin-left: 15px'><h2 class='bigText'>$category</h2></a>";
+            echo "<i class='iForBefore' onclick='toggle_visibility(\"$categoryKey\")'></i></div>";
+            echo "<div id='$categoryKey' style='display: none'>";
+        }
+
+        echo "<ul>";
+
+        $types = $db->getTypes($category);
+        foreach ($types as $typeKey => $type) {
+            if ($nowTyp === $typeKey) {
+                echo "<li class='smallBlackText' style='color: red'><a href='/search?category=$categoryKey&type=$typeKey&page=1'><h3 class='smallBlackText' style='font-weight: normal; color: red'>$type</h3></a></li>";
+            } else {
+                echo "<li class='smallBlackText'><a href='/search?category=$categoryKey&type=$typeKey&page=1'><h3 class='smallBlackText' style='font-weight: normal'>$type</h3></a></li>";
+            }
+        }
+        echo "</ul></div>";
+
+
+        echo "</div>";
+    }
+
+}
+
 ?>
 
 
@@ -149,9 +201,10 @@ function createPagination()
     <meta charset="UTF-8">
     <title>Продажа снаряжения для стрельбы</title>
     <link rel="icon" href="/images/site_logo.svg">
-    <link rel="stylesheet" href="/css/list_view.css?<? echo time(); ?>">
     <link rel="stylesheet" href="/css/ultimate.css?<? echo time(); ?>">
+    <link rel="stylesheet" href="/css/list_view.css?<? echo time(); ?>">
     <script src="/scripts/js/buyScripts.js?<? echo time(); ?>"></script>
+    <script src="/scripts/js/Utilities.js?<? echo time(); ?>"></script>
     <meta name="author" content="Bow Master">
     <meta name="description" content="Сайт по покупке луков">
     <meta name="keywords" content="Bow master, bowmaster, bow, лук, арбалет, купить лук, купить арбалет,
@@ -165,12 +218,25 @@ function createPagination()
 <?
 require("includes/header.php"); ?>
 
-<div class="container" style="flex-direction: column; max-width: 1300px">
-    <?
-    setContent();
-    ?>
-</div>
+<div class="mainItemContainer">
 
+    <div class="sideFiltersDiv">
+
+        <div style="margin-left: 9%">
+            <?
+            setCategories();
+            ?>
+        </div>
+    </div>
+
+    <div class="notFilterContainer">
+        <?
+        setContent();
+        ?>
+    </div>
+
+
+</div>
 <?
 createPagination();
 ?>
