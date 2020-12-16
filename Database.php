@@ -134,7 +134,7 @@ class Database
     public function getRandom()
     {
 
-        $query = "select goods.id_good from goods order by rand()";
+        $query = "select goods.id_good from goods order by rand() limit 1";
 
         $result = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
 

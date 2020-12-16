@@ -166,3 +166,8 @@ li.dropdown {
 .dropdown-item-list-item {
     position: relative;
 }
+
+
+@media (max-width: 1110px) {
+
+}
