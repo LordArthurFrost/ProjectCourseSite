@@ -34,6 +34,7 @@ $image = $info->getImage();
     снаряжение для стрельбы, стрельба, стрельба из лука, стрельба из арбалета, аксессуары для стрельбы, стрелы, боуфишинг, мишени, щиты, щитки, сетки, сетки для стрел, 2д мишени, 2d мишени,
     3д минеши, 3d мишени">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="/images/site_logo.svg">
 </head>
 
 <body>

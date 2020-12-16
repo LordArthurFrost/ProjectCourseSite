@@ -10,6 +10,7 @@
 }
 
 .topContent {
+    align-self: flex-start;
     width: 900px;
     display: flex;
     flex-direction: row;

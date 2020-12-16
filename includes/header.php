@@ -46,7 +46,7 @@ function setCatalogue()
             <nav class="navigationPanel">
                 <ul class="prime">
                     <li class="dropdown nav">
-                        <a href="javascript:void(0)" class="dropbtn">Категории</a>
+                        <a href="javascript:void(0)" class="dropbtn" style="font-size: 23px">Категории</a>
                         <div class="dropdown-content">
                             <?
                             setCatalogue();

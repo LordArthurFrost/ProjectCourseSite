@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/ultimate.css?<? echo time(); ?>">
     <link rel="stylesheet" href="/css/delivery_and_payment.css?<? echo time(); ?>">
+    <meta property="og:image" content="/images/site_logo.svg">
 </head>
 
 <body>

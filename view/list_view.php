@@ -1,6 +1,5 @@
 <?
 
-
 function setContent()
 {
     $db = new Database();
@@ -8,6 +7,19 @@ function setContent()
     $type = null;
     $content = array();
     $searching = null;
+    $selected = array();
+    $sort = null;
+
+    if (isset($_GET['sortPrice'])) {
+        $sort = $_GET['sortPrice'];
+        for ($i = 0; $i < 3; ++$i) {
+            if ($sort == $i) {
+                $selected[$i] = "selected";
+            }
+        }
+    }
+
+    $getVar = null;
 
     if (isset($_GET['searching'])) {
         $searching = htmlspecialchars($_GET['searching']);
@@ -16,12 +28,15 @@ function setContent()
         } else {
             $page = 1;
         }
-        $content = $db->getShortListViewBySearch($searching, $page);
+        $getVar[] = array("page", $page);
+        $getVar[] = array("searching", $searching);
+        $content = $db->getShortListViewBySearch($searching, $page, $sort);
 
 
     }
     if (isset($_GET['category'])) {
         $category = htmlspecialchars($_GET['category']);
+        $address = "/search?category=" . $category;
         if (isset($_GET['type'])) {
             $type = htmlspecialchars($_GET['type']);
         }
@@ -30,7 +45,11 @@ function setContent()
         } else {
             $page = 1;
         }
-        $content = $db->getShortListView($category, $type, $page);
+
+        $getVar[] = array("category", $category);
+        $getVar[] = array("page", $page);
+        $getVar[] = array("type", $type);
+        $content = $db->getShortListView($category, $type, $page, $sort);
     }
 
     if (isset($_GET['manufacturer'])) {
@@ -40,13 +59,33 @@ function setContent()
         } else {
             $page = 1;
         }
-        $content = $db->getShortListViewByManufacturer($manufacturer, $page);
+        $getVar[] = array("page", $page);
+        $getVar[] = array("manufacturer", $manufacturer);
+
+        $content = $db->getShortListViewByManufacturer($manufacturer, $page, $sort);
         $manufacturer = $db->getManufacturer($manufacturer);
-        echo "<div><b class='resultsSpan'>$manufacturer</b></div>";
+        echo "<div class='upperDiv'><b class='resultsSpan'>$manufacturer</b></div>";
     }
 
+    echo "<div class='upperDiv'><div><span class='resultsSpan'>Всего найдено результатов: " . ShortViewInfo::getCount() .
+        "</span></div><div  style='display: flex; flex-direction: row; align-items: center'>
+    <span class='resultsSpan'>Сортировать по цене:</span>
+    <form action='/search' method='get' id='sortPriceForm'>
+     <select class='itemPriceFilter' name='sortPrice' onchange='document.getElementById(\"sortPriceForm\").submit();'>
+        <option value='0' $selected[0]> --- </option>
+        <option value='1' $selected[1]>От меньшей к большей</option>
+        <option value='2' $selected[2]>От большей к меньшей</option>
+    </select>";
 
-    echo "<div><span class='resultsSpan'>Всего найдено результатов: " . ShortViewInfo::getCount() . "</span></div>";
+    for ($i = 0; $i < count($getVar); ++$i) {
+        if ($getVar[$i][1] != null) {
+            echo "<input type='hidden' name='" . $getVar[$i][0] . "' value='" . $getVar[$i][1] . "' />";
+        }
+    }
+
+    echo " </form>
+     </div></div>";
+
     echo "<div class='contentContainer'>";
 
     foreach ($content as $view) {
@@ -92,6 +131,10 @@ function createPagination()
         $link = "?manufacturer=" . htmlspecialchars($_GET['manufacturer']);
     }
 
+    if (isset($_GET['sortPrice'])) {
+        $link .= "&sortPrice=" . htmlspecialchars($_GET['sortPrice']);
+    }
+
     setPagination(ShortViewInfo::getCount(), $page, $link);
 }
 
@@ -115,13 +158,14 @@ function createPagination()
     снаряжение для стрельбы, стрельба, стрельба из лука, стрельба из арбалета, аксессуары для стрельбы, стрелы, боуфишинг, мишени, щиты, щитки, сетки, сетки для стрел, 2д мишени, 2d мишени,
     3д минеши, 3d мишени">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="images/site_logo.svg">
 </head>
 
 <body>
 <?
 require("includes/header.php"); ?>
 
-<div class="container" style="flex-direction: column">
+<div class="container" style="flex-direction: column; max-width: 1300px">
     <?
     setContent();
     ?>

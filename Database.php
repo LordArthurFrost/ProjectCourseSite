@@ -15,6 +15,13 @@ class Database
         $user = 'root'; // имя пользователя
         $password = 'root'; // пароль
 
+        /*
+        $host = 'localhost'; // адрес сервера
+        $database = 'a0497177_archery_shop'; // имя базы данных
+        $user = 'a0497177_arthur'; // имя пользователя
+        $password = 'Lucifer88'; // пароль
+        */
+
         $connection = mysqli_connect($host, $user, $password, $database) or die(mysqli_error($connection));
 
         $this->connection = $connection;
@@ -54,8 +61,23 @@ class Database
     }
 
 
-    public function getShortListViewBySearch($searching, $page = 1)
+    public function setSortFilters($sort)
     {
+        if ($sort != null) {
+            if ($sort == 1) {
+                return "order by goods.price ASC";
+            }
+            if ($sort == 2) {
+                return "order by goods.price DESC";
+            }
+        }
+        return "";
+    }
+
+
+    public function getShortListViewBySearch($searching, $page = 1, $sort)
+    {
+
 
         $query = "select goods.id_good, goods.name, goods.price, goods.image 
         from goods 
@@ -64,7 +86,7 @@ class Database
         or goods.price like '$searching'
         or goods.code_type in (select distinct type.type_code from type where type.type like '$searching%')";
 
-        return $this->executeQuery($query, $page);
+        return $this->executeQuery($query . $this->setSortFilters($sort), $page);
     }
 
 
@@ -83,14 +105,14 @@ class Database
     }
 
 
-    public function getShortListViewByManufacturer($code_manufacturer, $page = 1)
+    public function getShortListViewByManufacturer($code_manufacturer, $page = 1, $sort)
     {
 
         $query = "select goods.id_good, goods.name, goods.price, goods.image 
         from goods 
         where goods.code_manufacturer = '$code_manufacturer'";
 
-        return $this->executeQuery($query, $page);
+        return $this->executeQuery($query . $this->setSortFilters($sort), $page);
     }
 
 
@@ -147,7 +169,7 @@ class Database
     }
 
 
-    public function getShortListView($category_name, $type_name, $page = 1)
+    public function getShortListView($category_name, $type_name, $page = 1, $sort)
     {
         $query = "select goods.id_good, goods.name, goods.price, goods.image 
         from goods 
@@ -158,7 +180,7 @@ class Database
         }
 
 
-        return $this->executeQuery($query, $page);
+        return $this->executeQuery($query . $this->setSortFilters($sort), $page);
     }
 
 
@@ -166,7 +188,8 @@ class Database
     {
 
         $query = "select news.news_title, news.news, news.date, news.image_news
-        from news";
+        from news
+        order by news.code_news DESC";
 
         $news = array();
 
@@ -212,4 +235,5 @@ class Database
         }
         return false;
     }
+
 }
