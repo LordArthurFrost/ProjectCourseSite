@@ -50,6 +50,9 @@ switch ($arg) {
         break;
 
     case "search":
+        if (isset($_GET['searching']) and $_GET['searching'] === "") {
+            echo "<script>location.href = \"/search?searching=everything\"</script>";
+        }
         include("view/list_view.php");
         break;
 

@@ -9,29 +9,56 @@
     min-height: calc(100vh - 240px);
 }
 
+#hover-image {
+    z-index: 2;
+    position: fixed;
+    padding-top: 200px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.hoverImage {
+    margin: auto;
+    display: block;
+    height: 80%;
+    width: auto;
+    max-width: calc(100vw - 10%);
+    max-height: calc(100vw - 10%);
+    border-radius: 8px 8px 8px 8px;
+}
+
 .topContent {
     align-self: flex-start;
-    width: 900px;
+    max-width: 900px;
+    width: calc(100% - 20px);
+    margin: 0 10px 0 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 .image {
-    height: 450px;
-    width: 450px;
+    max-width: 450px;
+    max-height: 450px;
+    cursor: pointer;
 }
 
 .infoDiv {
     margin-top: 35px;
     margin-left: 20px;
-    width: 550px;
+    width: calc(100% - 30px);
 }
 
 .descriptionDiv {
     align-self: flex-start;
     justify-self: flex-start;
-    margin-top: 20px;
+    max-width: 900px;
+    width: 90%;
+    margin: 20px 10px 0 10px;
     text-align: left;
     justify-content: center;
 }
@@ -49,4 +76,76 @@
 .aTypeAndCategory {
     font-size: 20px;
     color: black;
+}
+
+#showItemBuyButton {
+    margin-top: 20px;
+    justify-content: left
+}
+
+iframe {
+    width: 800px;
+    margin: 10px;
+    justify-self: center;
+    align-self: center;
+    height: 600px;
+}
+
+div.descriptionDiv div {
+    max-width: 850px;
+}
+
+@media (max-width: 900px) {
+    .topContent {
+        flex-direction: column;
+    }
+
+    #showItemBuyButton {
+        justify-content: center;
+    }
+
+
+    iframe {
+        width: 100%;
+        height: 415px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .image {
+        width: 100%;
+        height: 100%;
+    }
+
+    iframe {
+        height: 350px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+
+    iframe {
+        height: 315px;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+
+    iframe {
+        height: 270px;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    iframe {
+        height: 230px;
+    }
+
 }

@@ -38,7 +38,6 @@ function setContent()
     }
     if (isset($_GET['category'])) {
         $category = htmlspecialchars($_GET['category']);
-        $address = "/search?category=" . $category;
         if (isset($_GET['type'])) {
             $type = htmlspecialchars($_GET['type']);
         }
@@ -69,9 +68,9 @@ function setContent()
         echo "<div class='upperDiv'><b class='resultsSpan'>$manufacturer</b></div>";
     }
 
-    echo "<div class='upperDiv'><div><span class='resultsSpan'>Всего найдено результатов: " . ShortViewInfo::getCount() .
-        "</span></div><div  style='display: flex; flex-direction: row; align-items: center'>
-    <span class='resultsSpan'>Сортировать по цене:</span>
+    echo "<div class='upperDiv'><div class='resultsAndPriceDiv'><span class='resultsSpan'>Всего найдено результатов: " . ShortViewInfo::getCount() .
+        "</span></div><div class='resultsAndPriceDiv'>
+    <span class='resultsSpan'>Сортировать по цене:&nbsp&nbsp</span>
     <form action='/search' method='get' id='sortPriceForm'>
      <select class='itemPriceFilter' name='sortPrice' onchange='document.getElementById(\"sortPriceForm\").submit();'>
         <option value='0' $selected[0]> --- </option>
@@ -102,7 +101,7 @@ function setContent()
         echo "<h4 class='itemSpanName'>$name</h4>";
         echo "</div>";
         echo "</a>";
-        echo "<div>";
+        echo "<div style='margin-top: 10px'>";
         echo "<span class='priceSpan'>$price гривен</span>";
         echo "</div>";
         echo "<div class='buttonBuyDiv'>";
@@ -115,6 +114,7 @@ function setContent()
 
 function createPagination()
 {
+    $link = null;
     if (isset($_GET['page'])) {
         $page = (int)htmlspecialchars($_GET['page']);
     } else {
@@ -164,11 +164,11 @@ function setCategories()
 
         if ($nowCat === $categoryKey) {
             echo "<a href='/search?category=$categoryKey&page=1' class='bigText' style='margin-left: 15px'><h2 class='bigText' style='color:red;'>$category</h2></a>";
-            echo "<i class='iForBefore' onclick='toggle_visibility(\"$categoryKey\")'></i></div>";
-            echo "<div id='$categoryKey' style='display: block'>";
+            echo "<i class='iForBefore' onclick='toggleFilterItemVisibility(\"$categoryKey\",this)' id='$categoryKey.1'>&#9655</i></div>";
+            echo "<div id='$categoryKey' style='display: block;'>";
         } else {
             echo "<a href='/search?category=$categoryKey&page=1' class='bigText' style='margin-left: 15px'><h2 class='bigText'>$category</h2></a>";
-            echo "<i class='iForBefore' onclick='toggle_visibility(\"$categoryKey\")'></i></div>";
+            echo "<i class='iForBefore' onclick='toggleFilterItemVisibility(\"$categoryKey\",this)' id='$categoryKey.1'>&#9661</i></div>";
             echo "<div id='$categoryKey' style='display: none'>";
         }
 

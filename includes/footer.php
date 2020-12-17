@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="/css/footer.css?<? echo time(); ?>">
-<link rel="stylesheet" href="/css/buttons.css?<? echo time(); ?>">
 
 <?
 

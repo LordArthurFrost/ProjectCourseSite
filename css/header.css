@@ -9,6 +9,13 @@
 .header {
     padding-top: 5px;
     background-color: #D6302B;
+    width: 100%;
+}
+
+.headerContainerLogo {
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 * {
@@ -37,6 +44,7 @@
     display: flex;
     flex-direction: column;
     justify-items: center;
+    align-content: center;
     justify-content: center;
 }
 
@@ -112,13 +120,12 @@ ul.prime {
     float: left;
 }
 
-li a, .dropbtn {
+div.headerContainer li a, .dropbtn {
     display: inline-block;
     color: white;
     font-size: 20px;
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none;
 }
 
 
@@ -148,17 +155,6 @@ li.dropdown {
     display: flex;
 }
 
-.headerSearchInput {
-    height: 30px;
-    width: 400px;
-    border-radius: 8px 8px 8px 8px;
-    font-size: 18px;
-    padding-left: 5px;
-    outline: none;
-    border: 0 solid transparent;
-}
-
-
 .dropdown-item-title {
     color: #000;
     font-weight: 700;
@@ -174,6 +170,49 @@ li.dropdown {
 }
 
 
+.headerSearchInput {
+    height: 35px;
+    width: 400px;
+    border-radius: 8px 8px 8px 8px;
+    font-size: 18px;
+    padding-left: 5px;
+    outline: none;
+    border: 0 solid transparent;
+}
+
+.headerSearchInputForm {
+    justify-self: center;
+    align-self: center;
+}
+
 @media (max-width: 1110px) {
 
+    .headerTopContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .headerSearchInputForm {
+        width: 100%;
+    }
+
+    .headerBottom {
+        display: none
+    }
+
+    .headerTopSearch {
+        margin-top: 15px;
+    }
+
+    .headerLogo {
+        width: calc(100% - 20px);
+        margin: 0 10px 0 10px;
+    }
+
+    .headerSearchInput {
+        width: calc(100% - 20px);
+        margin: 0 10px 0 10px;
+    }
 }

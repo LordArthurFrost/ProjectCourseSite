@@ -40,6 +40,7 @@ $id = $content->getId();
     <link rel="stylesheet" href="/css/show_item.css?<? echo time(); ?>">
     <link rel="stylesheet" href="/css/ultimate.css?<? echo time(); ?>">
     <script src="/scripts/js/buyScripts.js?<? echo time(); ?>"></script>
+    <script src="/scripts/js/Utilities.js?<? echo time(); ?>"></script>
     <meta property="og:image" content="<? echo $image ?>.jpeg">
 </head>
 
@@ -47,11 +48,16 @@ $id = $content->getId();
 <?
 include("includes/header.php");
 ?>
+<div id="hover-image" style="display: none">
+    <?
+    echo "<img src='$image' alt='$name' class='hoverImage'>";
+    ?>
+</div>
 <div class="container">
     <div class="topContent">
         <div>
             <?
-            echo "<img src='$image' alt='$name' class='image'>";
+            echo "<img src='$image' alt='$name' class='image' onclick='showFullImage()'>";
             ?>
         </div>
         <div class="infoDiv">
@@ -82,7 +88,7 @@ include("includes/header.php");
                 echo "<span class='aTypeAndCategory'>Цена: <b class='aTypeAndCategory'>$price</b> гривен</span>"
                 ?>
             </div>
-            <div class="buttonBuyDiv" style="margin-top: 20px; justify-content: left">
+            <div class="buttonBuyDiv" id="showItemBuyButton">
                 <?
                 echo "<button class='buttonBuy' onclick='fillForm(\"$id\")'>Купить</button>"
                 ?>

@@ -78,13 +78,17 @@ class Database
     public function getShortListViewBySearch($searching, $page = 1, $sort)
     {
 
-
-        $query = "select goods.id_good, goods.name, goods.price, goods.image 
+        if ($searching === "everything") {
+            $query = "select goods.id_good, goods.name, goods.price, goods.image 
+        from goods ";
+        } else {
+            $query = "select goods.id_good, goods.name, goods.price, goods.image 
         from goods 
         where goods.name like '%$searching%' 
         or goods.code_manufacturer like (select manufacturer.code_manufacturer from manufacturer where manufacturer.manufacturer like '%$searching%') 
         or goods.price like '$searching'
         or goods.code_type in (select distinct type.type_code from type where type.type like '$searching%')";
+        }
 
         return $this->executeQuery($query . $this->setSortFilters($sort), $page);
     }
