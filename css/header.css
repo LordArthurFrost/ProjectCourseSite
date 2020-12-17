@@ -185,6 +185,47 @@ li.dropdown {
     align-self: center;
 }
 
+.headerBottomMobile {
+    display: none;
+    min-height: 35px;
+    width: 100%;
+    margin: 20px 10px 20px 10px;
+    justify-content: center;
+    align-content: center;
+}
+
+.mobileButton {
+    width: 100%;
+    margin: 5px 0 5px 0;
+    height: 35px;
+    border: 2px gray solid;
+    color: #D6302B;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 30px;
+    cursor: pointer;
+    outline: none;
+}
+
+a .mobileButton {
+    color: #D6302B;
+    font-weight: normal;
+    font-size: 21px;
+
+}
+
+.dropdownMobileMenu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 8px 8px 8px 8px;
+    z-index: 1;
+}
+
 @media (max-width: 1110px) {
 
     .headerTopContainer {
@@ -200,6 +241,13 @@ li.dropdown {
 
     .headerBottom {
         display: none
+    }
+
+    .headerBottomMobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
     }
 
     .headerTopSearch {

@@ -8,6 +8,16 @@ function toggle_visibility(id) {
     }
 }
 
+function toggle_flex_visibility(id) {
+    let e = document.getElementById(id);
+
+    if (e.style.display === 'flex') {
+        e.style.display = 'none';
+    } else {
+        e.style.display = 'flex';
+    }
+}
+
 function toggleFilterItemVisibility(id, obj, adjID) {
     let e = document.getElementById(id + "." + adjID);
 

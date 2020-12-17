@@ -1,6 +1,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/ultimate.css?<?php echo time(); ?>">
 <link rel="stylesheet" href="/css/header.css?<?php echo time(); ?>">
+<script rel="script" src="/scripts/js/Utilities.js"></script>
 
 <?
 
@@ -40,6 +41,22 @@ function setCatalogue()
                     </label>
                     <button type="submit" style="display: none"></button>
                 </form>
+            </div>
+        </div>
+        <div class="headerBottomMobile">
+            <button class="mobileButton" onclick="toggle_flex_visibility('mobileMenu')">Меню</button>
+            <div style="display: none" id="mobileMenu" class="dropdownMobileMenu">
+                <a href="/" style="width: 100%;"><button class="mobileButton">Главная</button></a>
+                <a href="/about"><button class="mobileButton">О Нас</button></a>
+                <a href="/news"><button class="mobileButton">Новости</button></a>
+                <a href="/services"><button class="mobileButton">Услуги</button></a>
+                <a href="/delivery_and_payment"><button class="mobileButton">Оплата</button></a>
+                <a href="/contacts"><button class="mobileButton">Контакты</button></a>
+                <?
+                $db = new Database();
+                $rand = $db->getRandom();
+                echo "<a href='/show_item?id=$rand'/><button class='mobileButton' style='font-weight: bold'>Мне повезет!</button></a>";
+                ?>
             </div>
         </div>
         <div class="headerBottom">
