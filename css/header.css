@@ -167,8 +167,20 @@ li.dropdown {
 
 .dropdown-item-list-item {
     position: relative;
+    transition: all 0.5s;
 }
 
+.dropdown-item-list-item h3 {
+    color: red;
+}
+
+.dropdown-item-list-item:hover {
+    background-color: #D6302B;
+}
+
+.dropdown-item-list-item:hover h3 {
+    color: white;
+}
 
 .headerSearchInput {
     height: 35px;

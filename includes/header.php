@@ -16,7 +16,7 @@ function setCatalogue()
         echo "<ul class='bigText dropdown-item-title'>";
         $types = $db->getTypes($category);
         foreach ($types as $typeKey => $type) {
-            echo "<li class='dropdown-item-list-item smallText'><a href='/search?category=$categoryKey&type=$typeKey&page=1'><h3 class='smallText' style='font-weight: normal; color: red'>$type</h3></a></li>";
+            echo "<li class='smallText dropdown-item-list-item'><a href='/search?category=$categoryKey&type=$typeKey&page=1'><h3 class='smallText' style='font-weight: normal'>$type</h3></a></li>";
         }
         echo "</ul>";
         echo "</div>";
