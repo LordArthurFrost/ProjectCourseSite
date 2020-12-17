@@ -142,6 +142,15 @@ function createPagination()
 
 function setCategories()
 {
+
+    echo "<span class='bigText'>Категории</span>";
+    drawCategories(1);
+
+
+}
+
+function drawCategories($adjId)
+{
     $db = new Database();
     $categories = $db->getCategories();
 
@@ -156,20 +165,19 @@ function setCategories()
         $nowTyp = $_GET['type'];
     }
 
-    echo "<span class='bigText'>Категории</span>";
     foreach ($categories as $categoryKey => $category) {
 
-        echo "<div style='text-align: left;'><div style='display: flex; justify-content: space-between; margin-top: 20px'>";
+        echo "<div class='filterHelp'><div style='display: flex; justify-content: space-between; margin-top: 20px'>";
 
 
         if ($nowCat === $categoryKey) {
             echo "<a href='/search?category=$categoryKey&page=1' class='bigText' style='margin-left: 15px'><h2 class='bigText' style='color:red;'>$category</h2></a>";
-            echo "<i class='iForBefore' onclick='toggleFilterItemVisibility(\"$categoryKey\",this)' id='$categoryKey.1'>&#9655</i></div>";
-            echo "<div id='$categoryKey' style='display: block;'>";
+            echo "<i class='iForBefore' onclick='toggleFilterItemVisibility(\"$categoryKey\",this, \"$adjId\")'>&#9655</i></div>";
+            echo "<div id='$categoryKey.$adjId' style='display: block;'>";
         } else {
             echo "<a href='/search?category=$categoryKey&page=1' class='bigText' style='margin-left: 15px'><h2 class='bigText'>$category</h2></a>";
-            echo "<i class='iForBefore' onclick='toggleFilterItemVisibility(\"$categoryKey\",this)' id='$categoryKey.1'>&#9661</i></div>";
-            echo "<div id='$categoryKey' style='display: none'>";
+            echo "<i class='iForBefore' onclick='toggleFilterItemVisibility(\"$categoryKey\",this, \"$adjId\")' >&#9661</i></div>";
+            echo "<div id='$categoryKey.$adjId' style='display: none'>";
         }
 
         echo "<ul>";
@@ -187,6 +195,22 @@ function setCategories()
 
         echo "</div>";
     }
+}
+
+
+function setMobileCategories()
+{
+
+
+    echo "<div style='display: flex; justify-content: space-between;'>";
+    echo "<span class='bigText'>Категории</span>";
+    echo "<i class='iForBefore' onclick='toggleMobileFilterVisibility(this)'>&#9655</i>";
+    echo "</div>";
+    echo "<div id='innerFilters' style='display: none'>";
+
+    drawCategories(2);
+
+    echo "</div>";
 
 }
 
@@ -218,7 +242,17 @@ function setCategories()
 <?
 require("includes/header.php"); ?>
 
+
 <div class="mainItemContainer">
+
+    <div class="mobileSideFiltersDiv">
+
+        <div style="margin-left: 9%">
+            <?
+            setMobileCategories();
+            ?>
+        </div>
+    </div>
 
     <div class="sideFiltersDiv">
 
@@ -228,6 +262,7 @@ require("includes/header.php"); ?>
             ?>
         </div>
     </div>
+
 
     <div class="notFilterContainer">
         <?

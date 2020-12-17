@@ -8,8 +8,22 @@ function toggle_visibility(id) {
     }
 }
 
-function toggleFilterItemVisibility(id, obj) {
-    let e = document.getElementById(id);
+function toggleFilterItemVisibility(id, obj, adjID) {
+    let e = document.getElementById(id + "." + adjID);
+
+    if (e.style.display === "block") {
+        e.style.display = "none";
+        obj.innerText = '\u25BD';
+
+    } else {
+        obj.innerText = '\u25B7';
+        e.style.display = "block";
+        console.log(obj.textContent);
+    }
+}
+
+function toggleMobileFilterVisibility(obj) {
+    let e = document.getElementById('innerFilters');
 
     if (e.style.display === "block") {
         e.style.display = "none";

@@ -129,7 +129,22 @@
     border-radius: 8px;
 }
 
+.mobileSideFiltersDiv {
+    display: none;
+    padding: 15px;
+    width: 300px;
+    flex-direction: column;
+    align-self: flex-start;
+    margin-top: 3%;
+    border-radius: 8px;
+}
+
 div.mainItemContainer div.sideFiltersDiv ul li {
+    margin-left: 15%;
+    padding: 5% 0 5% 0;
+}
+
+div.mainItemContainer div.mobileSideFiltersDiv ul li {
     margin-left: 15%;
     padding: 5% 0 5% 0;
 }
@@ -170,6 +185,10 @@ div.mainItemContainer div.sideFiltersDiv ul li {
     .sideFiltersDiv {
         display: none
     }
+
+    .mobileSideFiltersDiv {
+        display: flex;
+    }
 }
 
 @media (max-width: 600px) {
@@ -188,7 +207,6 @@ div.mainItemContainer div.sideFiltersDiv ul li {
 }
 
 @media (max-width: 450px) {
-
 
 
     .itemContainer {
