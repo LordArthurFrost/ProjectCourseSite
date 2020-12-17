@@ -7,9 +7,9 @@
 
 <footer class="footer">
 
-    <a href="javascript:scroll(0,0)" title="Вернуться к началу страницы" class="topNubex">
-        <button class="buttonBuy" style="background: red">Наверх</button>
-    </a>
+
+        <button class="buttonBuy topNubex" style="background: red" onclick="window.scroll(0,0)">Наверх</button>
+
     <div class="footerDiv">
         <h3 class="bigText" style="color:white;">
             Bow Master - Отличный сайт для покупки снаряжения для стрельбы.

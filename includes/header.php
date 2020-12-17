@@ -46,16 +46,16 @@ function setCatalogue()
         <div class="headerBottomMobile">
             <button class="mobileButton" onclick="toggle_flex_visibility('mobileMenu')">Меню</button>
             <div style="display: none" id="mobileMenu" class="dropdownMobileMenu">
-                <a href="/" style="width: 100%;"><button class="mobileButton">Главная</button></a>
-                <a href="/about"><button class="mobileButton">О Нас</button></a>
-                <a href="/news"><button class="mobileButton">Новости</button></a>
-                <a href="/services"><button class="mobileButton">Услуги</button></a>
-                <a href="/delivery_and_payment"><button class="mobileButton">Оплата</button></a>
-                <a href="/contacts"><button class="mobileButton">Контакты</button></a>
+                <button class="mobileButton" style="font-weight: normal" onclick="window.location.href='/'">Главная</button>
+                <button class="mobileButton" style="font-weight: normal" onclick="window.location.href='/about'">О Нас</button>
+                <button class="mobileButton" style="font-weight: normal" onclick="window.location.href='/news'">Новости</button>
+                <button class="mobileButton" style="font-weight: normal" onclick="window.location.href='/services'">Услуги</button>
+                <button class="mobileButton" style="font-weight: normal" onclick="window.location.href='/delivery_and_payment'">Оплата</button>
+                <button class="mobileButton" style="font-weight: normal" onclick="window.location.href='/contacts'">Контакты</button>
                 <?
                 $db = new Database();
                 $rand = $db->getRandom();
-                echo "<a href='/show_item?id=$rand'/><button class='mobileButton' style='font-weight: bold'>Мне повезет!</button></a>";
+                echo "<button class='mobileButton' style='font-weight: bold' onclick=\"window.location.href='/show_item?id=$rand'\">Мне повезет!</button>";
                 ?>
             </div>
         </div>
@@ -78,7 +78,7 @@ function setCatalogue()
                     <?
                     $db = new Database();
                     $rand = $db->getRandom();
-                    echo "<li class='nav'><a style='font-weight: bold' href='/show_item?id=$rand'/>Мне повезет!</a></li>";
+                    echo "<li class='nav'><a style='font-weight: bold' href='/show_item?id=$rand'>Мне повезет!</a></li>";
                     ?>
                 </ul>
             </nav>
