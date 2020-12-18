@@ -7,7 +7,7 @@
 
 <footer class="footer">
 
-    <img src="/images/shopping-cart.svg" alt="Shopping Cart" width="64" height="64" onclick="window.location.href = '/buy_form'" class="toCartIcon">
+    <img src="/images/shopping-cart.svg" alt="Shopping Cart" onclick="window.location.href = '/buy_form'" class="toCartIcon">
     <button class="buttonBuy topNubex" style="background: red" onclick="window.scroll(0,0)">Наверх</button>
 
     <div class="footerDiv">
@@ -22,7 +22,7 @@
             </div>
             <div class="footerHorizontalDiv">
             <span style="justify-self: center"> Весь материал взят с сайта
-                <a style="color: white" href="https://arcusmarket.com/">https://arcusmarket.com/</a> </span></div>
+                <a style="color: white; text-decoration: underline;" href="https://arcusmarket.com/">https://arcusmarket.com/</a> </span></div>
         </div>
 
     </div>
