@@ -1,8 +1,7 @@
 div.container img {
-    max-width: 500px;
-    width: 100%;
+    width: 100px;
     height: auto;
-    justify-self: center;
+    margin-right: 15px;
 }
 
 .input {
@@ -15,3 +14,48 @@ div.container img {
     outline: none;
     border: 2px solid #D6302B;
 }
+
+.goodInnerDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.goodUpperInnerDiv {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px
+}
+
+
+.deleteSpan {
+    color: #D6302B;
+    height: 20px;
+    cursor: pointer;
+    align-self: center;
+    text-decoration: underline;
+}
+
+.nameSpanLink {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline
+}
+
+.upperCart {
+    display: flex;
+    flex-wrap: wrap;
+    justify-self: center;
+    align-self: center;
+}
+
+.outerCategory {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 25px;
+    width: 75%;
+    min-height: calc(10vh)
+}
+
+

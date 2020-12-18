@@ -90,7 +90,7 @@ include("includes/header.php");
             </div>
             <div class="buttonBuyDiv" id="showItemBuyButton">
                 <?
-                echo "<button class='buttonBuy' onclick='fillForm(\"$id\")'>Купить</button>"
+                echo "<button class='buttonBuy' onclick='addToCart(\"$id\")'>Купить</button>"
                 ?>
             </div>
         </div>

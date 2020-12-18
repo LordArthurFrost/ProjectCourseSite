@@ -7,8 +7,8 @@
 
 <footer class="footer">
 
-
-        <button class="buttonBuy topNubex" style="background: red" onclick="window.scroll(0,0)">Наверх</button>
+    <img src="/images/shopping-cart.svg" alt="Shopping Cart" width="64" height="64" onclick="window.location.href = '/buy_form'" class="toCartIcon">
+    <button class="buttonBuy topNubex" style="background: red" onclick="window.scroll(0,0)">Наверх</button>
 
     <div class="footerDiv">
         <h3 class="bigText" style="color:white;">

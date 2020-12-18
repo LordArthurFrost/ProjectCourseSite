@@ -34,3 +34,15 @@
     display: flex;
     justify-content: center;
 }
+
+.toCartIcon{
+    position: fixed;
+    width: 64px;
+    height: 64px;
+    right: 3.5%;
+    bottom: 11%;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: red;
+    cursor: pointer;
+}

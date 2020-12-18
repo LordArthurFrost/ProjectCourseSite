@@ -229,7 +229,7 @@ class Database
 
     public function addCustomerGood($id, $name, $surname, $telephone, $email)
     {
-        $date = date(DATE_RFC822);
+        $date = date("G:i d.m.Y ");
         $query = "INSERT INTO `orders`(`name`, `surname`, `email`, `telephone`, `id`, `time`) VALUES ('$name','$surname','$email','$telephone','$id','$date')";
 
         $result = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));

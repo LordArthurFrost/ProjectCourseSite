@@ -105,7 +105,7 @@ function setContent()
         echo "<span class='priceSpan'>$price гривен</span>";
         echo "</div>";
         echo "<div class='buttonBuyDiv'>";
-        echo "<button class='buttonBuy' onclick='fillForm(\"$id\")'>Купить</button>";
+        echo "<button class='buttonBuy' onclick='addToCart(\"$id\")'>Купить</button>";
         echo "</div>";
         echo "</div>";
     }
