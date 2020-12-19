@@ -73,10 +73,17 @@
     color: black;
 }
 
-.aTypeAndCategory {
+.hyperText{
+   color: red;
+    text-decoration: underline;
     font-size: 20px;
-    color: black;
 }
+
+.aTypeAndCategory{
+    color: black;
+    font-size: 20px;
+}
+
 
 #showItemBuyButton {
     margin-top: 20px;

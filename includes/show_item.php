@@ -69,17 +69,17 @@ include("includes/header.php");
             <hr>
             <div style="margin-top: 10px">
                 <?
-                echo "Производитель: <a href='/search?manufacturer=$code_manufacturer' class='fontBold'>$manufacturer</a>"
+                echo "Производитель: <a href='/search?manufacturer=$code_manufacturer' class='fontBold hyperText' >$manufacturer</a>"
                 ?>
             </div>
             <div style="margin-top: 10px">
                 <?
-                echo "Категория: <a href='/search?category=$category_name' class='aTypeAndCategory'>$category</a>"
+                echo "Категория: <a href='/search?category=$category_name' class=' hyperText'>$category</a>"
                 ?>
             </div>
-            <div style="margin-top: 10px">
+            <div style="margin-top: 10px; margin-bottom: 5px">
                 <?
-                echo "Тип: <a href='/search?category=$category_name&type=$type_name' class='aTypeAndCategory'>$type</a>"
+                echo "Тип: <a href='/search?category=$category_name&type=$type_name' class=' hyperText'>$type</a>"
                 ?>
             </div>
             <hr>
