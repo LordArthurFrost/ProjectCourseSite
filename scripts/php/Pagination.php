@@ -1,4 +1,4 @@
-<?php
+<?
 
 function setPagination($items, $current_page = 1, $link)
 {
@@ -33,3 +33,5 @@ function createPaginationItem($page, $current_page, $link)
         echo "<a href='$link&page=$page'>$page</a>";
     }
 }
+
+?>

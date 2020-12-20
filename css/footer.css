@@ -5,13 +5,6 @@
     min-height: 70px;
 }
 
-.topNubex {
-    position: fixed;
-    right: 3%;
-    bottom: 4%;
-    font-size: 20px;
-}
-
 .footerDiv {
     margin-top: 25px;
     display: flex;
@@ -39,10 +32,57 @@
     position: fixed;
     width: 64px;
     height: 64px;
-    right: 3.5%;
-    bottom: 11%;
+    right: 2%;
+    bottom: 10%;
     border-radius: 15px;
     padding: 10px;
     background-color: red;
     cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+img.toCartIcon:hover{
+    background-color: darkred;
+}
+
+#toTop {
+    position: fixed;
+    display: inline-block;
+    bottom: 30px;
+    right: -40px;
+    width: 40px;
+    height: 40px;
+    z-index: 1000;;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    border-radius: 8px;
+    background: red;
+    box-shadow: 0 0 0 3px rgba(0,0,0,.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease-in-out;
+}
+#toTop:hover {
+    background: darkred;
+}
+
+#toTop svg {
+    position: relative;
+    top: 12px;
+    right: -1px;
+    fill: #fff;
+    transition: all .3s ease-in-out;
+}
+
+#toTop:hover svg {
+    cursor: pointer;
+    fill: #fff;
+    transition: all .3s ease-in-out;
+}
+
+#toTop.show {
+    opacity: 1;
+    visibility: visible;
+    right: calc(2%);
 }

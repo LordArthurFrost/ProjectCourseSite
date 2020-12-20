@@ -1,10 +1,6 @@
 <script src="/scripts/js/buyScripts.js?<? echo time(); ?>"></script>
 
 <?
-
-?>
-
-<?
 $db = new Database();
 $shopCart = new Cart();
 
@@ -33,7 +29,6 @@ for ($i = 0; $i < count($goods); ++$i) {
     $name[$i] = $goods[$i]->getName();
     $image[$i] = $goods[$i]->getImage();
 }
-
 
 ?>
 
