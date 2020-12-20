@@ -1,6 +1,6 @@
 <?
 include("scripts/php/Pagination.php");
-require_once 'models/Database.php';
+require_once ('server/Database.php');
 include("models/News.php");
 include("models/Cart.php");
 
