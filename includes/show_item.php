@@ -13,9 +13,9 @@ $name = $content->getName();
 $description = $content->getDescription();
 $manufacturer = $content->getManufacturer();
 $code_manufacturer = $content->getCodeManufacturer();
-$category = $content->getCategory();
+$category_good = $content->getCategory();
 $category_name = $content->getCategoryName();
-$type = $content->getType();
+$type_good = $content->getType();
 $type_name = $content->getTypeName();
 $price = $content->getPrice();
 $id = $content->getId();
@@ -75,12 +75,12 @@ include("includes/header.php");
                 </div>
                 <div style="margin-top: 10px">
                     <?
-                    echo "Категория: <a href='/search?category=$category_name' class=' hyperText'>$category</a>"
+                    echo "Категория: <a href='/search?category=$category_name' class=' hyperText'>$category_good</a>"
                     ?>
                 </div>
                 <div style="margin-top: 10px; margin-bottom: 5px">
                     <?
-                    echo "Тип: <a href='/search?category=$category_name&type=$type_name' class=' hyperText'>$type</a>"
+                    echo "Тип: <a href='/search?category=$category_name&type=$type_name' class=' hyperText'>$type_good</a>"
                     ?>
                 </div>
                 <hr>
