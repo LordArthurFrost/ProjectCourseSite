@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let btn = document.querySelector('#toTop');
     window.addEventListener('scroll', function () {
 
-        if (pageYOffset > 100) {
+        if (pageYOffset > 600) {
             btn.classList.add('show');
         } else {
             btn.classList.remove('show');

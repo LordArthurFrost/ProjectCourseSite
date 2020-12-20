@@ -28,10 +28,6 @@ switch ($arg) {
         include("includes/contacts.php");
         break;
 
-    case "submit":
-
-        break;
-
     case "delivery_and_payment":
         include("includes/delivery_and_payment.php");
         break;
@@ -41,37 +37,19 @@ switch ($arg) {
         break;
 
     case "addToCart":
-
-        if (isset($_POST['id'])) {
-            $cartManager = new Cart();
-            $cartManager->set($_POST['id']);
-            print_r($cartManager->get());
-        }
+        include("scripts/php/addToCart.php");
         break;
 
     case "deleteFromCart":
-
-        if (isset($_POST['id'])) {
-            $cartManager = new Cart();
-            $cartManager->delete($_POST['id']);
-            print_r($cartManager->get());
-        }
+        include("scripts/php/deleteFromCart.php");
         break;
+
     case "purchase":
-        if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['email']) && isset($_POST['tel']) && isset($_POST['id'])) {
-            $db = new Database();
-            $array = $_POST['id'];
-            $result = $db->addCustomerGood(htmlspecialchars($_POST['id']), htmlspecialchars($_POST['name']), htmlspecialchars($_POST['surname']), htmlspecialchars($_POST['tel']), htmlspecialchars($_POST['email']));
-            $cartManager = new Cart();
-            $cartManager->clear();
-        }
+        include("scripts/php/purchase.php");
         break;
 
     case "clearCart":
-        $cartManager = new Cart();
-        $cartManager->clear();
-        print_r($cartManager->get());
-        echo "Empty";
+        include("scripts/php/clearCart.php");
         break;
 
     case "buy_form":
@@ -79,9 +57,7 @@ switch ($arg) {
         break;
 
     case "search":
-        if (isset($_GET['searching']) and $_GET['searching'] === "") {
-            echo "<script>location.href = \"/search?searching=everything\"</script>";
-        }
+        include("scripts/php/fixEmptySearch.php");
         include("view/list_view.php");
         break;
 
