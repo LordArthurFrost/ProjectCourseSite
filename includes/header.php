@@ -30,7 +30,7 @@
                 <button class="mobileButton" style="font-weight: normal" onclick="window.location.href='/delivery_and_payment'">Оплата</button>
                 <button class="mobileButton" style="font-weight: normal" onclick="window.location.href='/contacts'">Контакты</button>
                 <?
-                    include ("scripts/php/randomMobileButton.php");
+                include("scripts/php/randomMobileButton.php");
                 ?>
             </div>
         </div>
@@ -41,7 +41,7 @@
                         <a href="javascript:void(0)" class="dropbtn" style="font-size: 23px">Категории</a>
                         <div class="dropdown-content">
                             <?
-                            include ("scripts/php/setHeaderCatalogue.php");
+                            include("scripts/php/setHeaderCatalogue.php");
                             ?>
                         </div>
                     </li>
@@ -51,7 +51,7 @@
                     <li class="nav"><a href="/delivery_and_payment">Оплата</a></li>
                     <li class="nav"><a href="/contacts">Контакты</a></li>
                     <?
-                        include ("scripts/php/randomDesktopButton.php");
+                    include("scripts/php/randomDesktopButton.php");
                     ?>
                 </ul>
             </nav>

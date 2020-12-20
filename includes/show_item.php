@@ -29,12 +29,12 @@ $id = $content->getId();
 <head>
     <meta name="language" content="ru">
     <meta charset="UTF-8">
-    <title>Инфориация про <? echo $name ?></title>
+    <title>Информация про <? echo $name ?></title>
     <meta name="author" content="Bow Master">
-    <meta name="description" content="Купить <? echo $name ?> (<? echo $type ?>)">
+    <meta name="description" content="Купить <? echo $name ?> (<? echo $type_name ?>)">
     <meta name="keywords" content="Bow master, bowmaster, bow, лук, арбалет, купить лук, купить арбалет,
     снаряжение для стрельбы, стрельба, стрельба из лука, стрельба из арбалета, аксессуары для стрельбы, стрелы, боуфишинг, мишени, щиты, щитки, сетки, сетки для стрел, 2д мишени, 2d мишени,
-    3д минеши, 3d мишени, Купить <? echo $name ?> (<? echo $type ?>)">
+    3д минеши, 3d мишени, Купить <? echo $name ?> (<? echo $type_name ?>)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/images/site_logo.svg">
     <link rel="stylesheet" href="/css/show_item.css?<? echo time(); ?>">
