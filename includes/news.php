@@ -22,12 +22,15 @@
 <?
 include("includes/header.php");
 ?>
-<div class="container">
-    <h2 class="h2Style bigText">Новости Сайта</h2>
+<article class="mainArticle">
+    <div class="container">
+        <h2 class="h2Style bigText">Новости Сайта</h2>
 
-    <? include("scripts/php/setNews.php"); ?>
+        <? include("scripts/php/setNews.php"); ?>
 
-</div>
+    </div>
+
+</article>
 <?
 include("includes/footer.php");
 ?>

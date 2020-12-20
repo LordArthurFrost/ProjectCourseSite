@@ -21,7 +21,7 @@
 <?
 include("includes/header.php");
 ?>
-<article>
+<article class="mainArticle">
     <div class="container">
 
         <h2 class="h2Style bigText">Оплата и доставка</h2>

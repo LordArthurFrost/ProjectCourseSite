@@ -55,74 +55,75 @@ for ($i = 0; $i < count($goods); ++$i) {
 <?
 include("includes/header.php");
 ?>
+<article class="mainArticle">
 
-<div class="container" style="justify-content: flex-start">
-    <h2 class="h2Style bigText">Ваш заказ</h2>
+    <div class="container" style="justify-content: flex-start">
+        <h2 class="h2Style bigText">Ваш заказ</h2>
 
-    <span class="deleteSpan" style="margin-top: 30px" onclick="clearCart()">Очистить корзину</span>
+        <span class="deleteSpan" style="margin-top: 30px" onclick="clearCart()">Очистить корзину</span>
 
-    <div class="outerCategory">
+        <div class="outerCategory">
 
             <span class="bigText" id="emptyCart"
                   style="align-self: center; margin-bottom: 30px; display:  <? if ($totalSum === 0) echo "block"; else echo "none" ?>">Ваша корзина пуста</span>
 
-        <?
-        for ($i = 0; $i < count($name); ++$i) {
-            echo "<div class='goodUpperInnerDiv' >";
+            <?
+            for ($i = 0; $i < count($name); ++$i) {
+                echo "<div class='goodUpperInnerDiv' >";
 
-            echo "<div style='display: flex'>";
-            echo "<img src='$image[$i]' alt='$name[$i]'>";
+                echo "<div style='display: flex'>";
+                echo "<img src='$image[$i]' alt='$name[$i]'>";
 
-            echo "<div class='goodInnerDiv'>";
-            echo "<a href='/show_item?id=$id[$i]' <span class='nameSpanLink'>$name[$i]</span></a>";
+                echo "<div class='goodInnerDiv'>";
+                echo "<a href='/show_item?id=$id[$i]' <span class='nameSpanLink'>$name[$i]</span></a>";
 
-            echo "<span><b>Стоимость товара:</b> $price[$i] гривен</span>";
-            echo "</div>";
+                echo "<span><b>Стоимость товара:</b> $price[$i] гривен</span>";
+                echo "</div>";
 
-            echo "</div>";
+                echo "</div>";
 
-            echo "<span class='deleteSpan' onclick='deleteFromCart(\"$id[$i]\", \"$price[$i]\", this)'>Удалить</span>";
-            echo "</div>";
-        }
-        echo "<b style='align-self: center'><span  id='totalSum'>Общая стоимость: $totalSum гривен</span></b>";
-        ?>
+                echo "<span class='deleteSpan' onclick='deleteFromCart(\"$id[$i]\", \"$price[$i]\", this)'>Удалить</span>";
+                echo "</div>";
+            }
+            echo "<b style='align-self: center'><span  id='totalSum'>Общая стоимость: $totalSum гривен</span></b>";
+            ?>
+        </div>
+
+        <div class="horizontalDiv" style="margin-top: 30px">
+            <form enctype="multipart/form-data" id="buyForm" onsubmit="return purchase()">
+                <label for="name">Введите Ваше имя:</label><br>
+                <label>
+                    <input class="input" type="text" name="name" maxlength="100" placeholder="Артур" required>
+                </label><br><br>
+                <label for="surname">Введите Вашу фамилию:</label><br>
+                <label>
+                    <input class="input" type="text" name="surname" maxlength="100" placeholder="Мороз" required>
+                </label><br><br>
+                <label for="email">Введите Ваш email:</label><br>
+                <label>
+                    <input class="input" type="email" name="email" maxlength="50" placeholder="example@emample.com"
+                           required>
+                </label><br><br>
+                <label for="tel">Введите Вашу телефон:</label><br>
+                <label>
+                    <input class="input" type="tel" name="tel" maxlength="13" placeholder="+380981203667" required>
+                </label><br><br>
+                <label>
+                    <input class="input" type="hidden" name="id" id="idField" value="<? foreach ($id as $item) {
+                        echo $item . ", ";
+                    } ?>" style="display: none" readonly
+                           required>
+                </label>
+                <? if (count($id) !== 0) { ?>
+                    <div id="butButtons">
+                        <input class="buttonBuy" type="submit" value="Подтвердить" style="margin-right: 25px">
+                        <input class="buttonBuy" type="reset">
+                    </div>
+                <? } ?>
+            </form>
+        </div>
     </div>
-
-    <div class="horizontalDiv" style="margin-top: 30px">
-        <form enctype="multipart/form-data" id="buyForm" onsubmit="return purchase()">
-            <label for="name">Введите Ваше имя:</label><br>
-            <label>
-                <input class="input" type="text" name="name" maxlength="100" placeholder="Артур" required>
-            </label><br><br>
-            <label for="surname">Введите Вашу фамилию:</label><br>
-            <label>
-                <input class="input" type="text" name="surname" maxlength="100" placeholder="Мороз" required>
-            </label><br><br>
-            <label for="email">Введите Ваш email:</label><br>
-            <label>
-                <input class="input" type="email" name="email" maxlength="50" placeholder="example@emample.com"
-                       required>
-            </label><br><br>
-            <label for="tel">Введите Вашу телефон:</label><br>
-            <label>
-                <input class="input" type="tel" name="tel" maxlength="13" placeholder="+380981203667" required>
-            </label><br><br>
-            <label>
-                <input class="input" type="hidden" name="id" id="idField" value="<? foreach ($id as $item) {
-                    echo $item . ", ";
-                } ?>" style="display: none" readonly
-                       required>
-            </label>
-            <? if (count($id) !== 0) { ?>
-                <div id="butButtons">
-                    <input class="buttonBuy" type="submit" value="Подтвердить" style="margin-right: 25px">
-                    <input class="buttonBuy" type="reset">
-                </div>
-            <? } ?>
-        </form>
-    </div>
-</div>
-
+</article>
 <?
 include("includes/footer.php");
 ?>

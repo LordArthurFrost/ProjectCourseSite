@@ -21,12 +21,13 @@
 <?
 include 'includes/header.php';
 ?>
-<div class="mainContainer">
-    <?
-    include("scripts/php/setMainPageCategories.php");
-    ?>
-</div>
-
+<article class="mainArticle">
+    <div class="mainContainer">
+        <?
+        include("scripts/php/setMainPageCategories.php");
+        ?>
+    </div>
+</article>
 <?
 include("includes/footer.php");
 ?>

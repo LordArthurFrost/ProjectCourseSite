@@ -21,7 +21,7 @@
 <?
 include("includes/header.php");
 ?>
-<article>
+<article class="mainArticle">
     <div class="container">
         <h2 class="bigText h2Style">Сервисный центр</h2>
         <div class="divTextMargin">

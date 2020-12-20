@@ -48,62 +48,63 @@ $id = $content->getId();
 <?
 include("includes/header.php");
 ?>
-<div id="hover-image" style="display: none">
-    <?
-    echo "<img src='$image' alt='$name' class='hoverImage'>";
-    ?>
-</div>
-<div class="container">
-    <div class="topContent">
-        <div>
-            <?
-            echo "<img src='$image' alt='$name' class='image' onclick='showFullImage()'>";
-            ?>
-        </div>
-        <div class="infoDiv">
-            <div>
-                <?
-                echo "<span class='nameSpan'>$name</span>"
-                ?>
-            </div>
-            <hr>
-            <div style="margin-top: 10px">
-                <?
-                echo "Производитель: <a href='/search?manufacturer=$code_manufacturer' class='fontBold hyperText' >$manufacturer</a>"
-                ?>
-            </div>
-            <div style="margin-top: 10px">
-                <?
-                echo "Категория: <a href='/search?category=$category_name' class=' hyperText'>$category</a>"
-                ?>
-            </div>
-            <div style="margin-top: 10px; margin-bottom: 5px">
-                <?
-                echo "Тип: <a href='/search?category=$category_name&type=$type_name' class=' hyperText'>$type</a>"
-                ?>
-            </div>
-            <hr>
-            <div style="margin-top: 10px">
-                <?
-                echo "<span class='aTypeAndCategory'>Цена: <b class='aTypeAndCategory'>$price</b> гривен</span>"
-                ?>
-            </div>
-            <div class="buttonBuyDiv" id="showItemBuyButton">
-                <?
-                echo "<button class='buttonBuy' onclick='addToCart(\"$id\")'>Купить</button>"
-                ?>
-            </div>
-        </div>
-
-    </div>
-    <div class="descriptionDiv">
+<article class="mainArticle">
+    <div id="hover-image" style="display: none">
         <?
-        echo "<span class='fontBold'>Характеристики и описание:</span><br><br>";
-        echo $description;
+        echo "<img src='$image' alt='$name' class='hoverImage'>";
         ?>
     </div>
-</div>
+    <div class="container">
+        <div class="topContent">
+            <div>
+                <?
+                echo "<img src='$image' alt='$name' class='image' onclick='showFullImage()'>";
+                ?>
+            </div>
+            <div class="infoDiv">
+                <div>
+                    <?
+                    echo "<span class='nameSpan'>$name</span>"
+                    ?>
+                </div>
+                <hr>
+                <div style="margin-top: 10px">
+                    <?
+                    echo "Производитель: <a href='/search?manufacturer=$code_manufacturer' class='fontBold hyperText' >$manufacturer</a>"
+                    ?>
+                </div>
+                <div style="margin-top: 10px">
+                    <?
+                    echo "Категория: <a href='/search?category=$category_name' class=' hyperText'>$category</a>"
+                    ?>
+                </div>
+                <div style="margin-top: 10px; margin-bottom: 5px">
+                    <?
+                    echo "Тип: <a href='/search?category=$category_name&type=$type_name' class=' hyperText'>$type</a>"
+                    ?>
+                </div>
+                <hr>
+                <div style="margin-top: 10px">
+                    <?
+                    echo "<span class='aTypeAndCategory'>Цена: <b class='aTypeAndCategory'>$price</b> гривен</span>"
+                    ?>
+                </div>
+                <div class="buttonBuyDiv" id="showItemBuyButton">
+                    <?
+                    echo "<button class='buttonBuy' onclick='addToCart(\"$id\")'>Купить</button>"
+                    ?>
+                </div>
+            </div>
 
+        </div>
+        <div class="descriptionDiv">
+            <?
+            echo "<span class='fontBold'>Характеристики и описание:</span><br><br>";
+            echo $description;
+            ?>
+        </div>
+    </div>
+</article>
 <?
 include("includes/footer.php");
 ?>

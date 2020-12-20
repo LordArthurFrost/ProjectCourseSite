@@ -132,40 +132,40 @@ function setMobileCategories()
 <?
 require("includes/header.php"); ?>
 
+<article class="mainArticle">
+    <div class="mainItemContainer">
 
-<div class="mainItemContainer">
+        <div class="mobileSideFiltersDiv">
 
-    <div class="mobileSideFiltersDiv">
+            <div style="margin-left: 9%">
+                <?
+                setMobileCategories();
+                ?>
+            </div>
+        </div>
 
-        <div style="margin-left: 9%">
+        <div class="sideFiltersDiv">
+
+            <div style="margin-left: 9%">
+                <?
+                setCategories();
+                ?>
+            </div>
+        </div>
+
+
+        <div class="notFilterContainer">
             <?
-            setMobileCategories();
+            include("scripts/php/setCatalogueContent.php");
             ?>
         </div>
+
+
     </div>
-
-    <div class="sideFiltersDiv">
-
-        <div style="margin-left: 9%">
-            <?
-            setCategories();
-            ?>
-        </div>
-    </div>
-
-
-    <div class="notFilterContainer">
-        <?
-        include("scripts/php/setCatalogueContent.php");
-        ?>
-    </div>
-
-
-</div>
-<?
-createPagination();
-?>
-
+    <?
+    createPagination();
+    ?>
+</article>
 <?
 include("includes/footer.php");
 ?>

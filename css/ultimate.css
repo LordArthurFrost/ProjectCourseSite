@@ -1,7 +1,11 @@
+.mainArticle {
+    padding-top: 25px;
+}
+
 .container {
     max-width: 900px;
     width: calc(100% - 20px);
-    margin: 20px auto;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
