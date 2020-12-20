@@ -58,7 +58,7 @@ switch ($arg) {
 
     case "search":
         include("scripts/php/fixEmptySearch.php");
-        include("view/list_view.php");
+        include("includes/list_view.php");
         break;
 
     default:
