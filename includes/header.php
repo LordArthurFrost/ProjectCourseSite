@@ -30,9 +30,7 @@
                 <button class="mobileButton" style="font-weight: normal" onclick="window.location.href='/delivery_and_payment'">Оплата</button>
                 <button class="mobileButton" style="font-weight: normal" onclick="window.location.href='/contacts'">Контакты</button>
                 <?
-                $db = new Database();
-                $rand = $db->getRandom();
-                echo "<button class='mobileButton' style='font-weight: bold' onclick=\"window.location.href='/show_item?id=$rand'\">Мне повезет!</button>";
+                    include ("scripts/php/randomMobileButton.php");
                 ?>
             </div>
         </div>
@@ -53,9 +51,7 @@
                     <li class="nav"><a href="/delivery_and_payment">Оплата</a></li>
                     <li class="nav"><a href="/contacts">Контакты</a></li>
                     <?
-                    $db = new Database();
-                    $rand = $db->getRandom();
-                    echo "<li class='nav'><a style='font-weight: bold' href='/show_item?id=$rand'>Мне повезет!</a></li>";
+                        include ("scripts/php/randomDesktopButton.php");
                     ?>
                 </ul>
             </nav>
